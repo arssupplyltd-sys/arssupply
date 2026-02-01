@@ -56,11 +56,7 @@ export default function About() {
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <div className="text-center mb-12">
-                {/* <div className="inline-block mb-6 px-4 py-2 bg-blue-100 rounded-full">
-                  <span className="text-blue-700 text-sm font-semibold tracking-wide">
-                    OUR STORY
-                  </span>
-                </div> */}
+ 
                 <h1 className="text-6xl sm:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
                   About Us
                 </h1>
@@ -102,11 +98,7 @@ export default function About() {
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <div className="text-center mb-16">
-                {/* <div className="inline-block mb-6 px-4 py-2 bg-cyan-100 rounded-full">
-                  <span className="text-cyan-700 text-sm font-semibold tracking-wide">
-                    OUR PURPOSE
-                  </span>
-                </div> */}
+
                 <h2 className="text-6xl sm:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
                   Our Mission
                 </h2>
