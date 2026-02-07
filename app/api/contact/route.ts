@@ -9,17 +9,19 @@ export async function POST(req: Request) {
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { success: false, message: "Missing fields" },
+        { success: false, message: "All fields are required" },
         { status: 400 }
       );
     }
 
     await resend.emails.send({
-      from: "ARS Supply <sales@arssupply.co.uk>",
-      to: ["sales@arssupply.co.uk"],
-      replyTo: email, // so you can reply directly
-      subject: `New Website Enquiry - ${name}`,
+      from: "ARS Supply <onboarding@resend.dev>", // no DNS verification needed
+      to: ["sales@arssupply.co.uk"], // MilesWeb inbox → forwarded to Gmail
+      replyTo: email,
+      subject: `New Enquiry from ${name}`,
       text: `
+New contact form submission:
+
 Name: ${name}
 Email: ${email}
 
@@ -30,9 +32,9 @@ ${message}
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Resend error:", error);
+    console.error("Email send error:", error);
     return NextResponse.json(
-      { success: false, message: "Email failed" },
+      { success: false, message: "Failed to send email" },
       { status: 500 }
     );
   }
