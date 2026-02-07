@@ -64,7 +64,7 @@ export default function About() {
               </div>
 
               <p className="text-lg sm:text-xl text-gray-700 leading-relaxed text-justify max-w-4xl mx-auto mb-8">
-                We started this company with a simple goal: to be a reliable
+                We started this company with a simple goal : to be a reliable
                 wholesale partner for everyday consumable needs. As a trading
                 business, we supply a wide range of essential products including
                 hand gloves, sanding discs, fasteners, packaging materials,
