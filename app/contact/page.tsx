@@ -63,7 +63,7 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://ars-backend-zob3.onrender.com/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,6 +114,8 @@ export default function Contact() {
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              
+              {/* LEFT INFO */}
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Get in Touch
@@ -125,146 +127,84 @@ export default function Contact() {
 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
                       <Mail className="text-white" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        Email
-                      </h3>
-                      <p className="text-gray-600">
-                        sales@arssupply.co.uk
-                      </p>
+                      <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                      <p className="text-gray-600">sales@arssupply.co.uk</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
                       <Phone className="text-white" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        Phone
-                      </h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                       <p className="text-gray-600">+44 7940216343</p>
-                      <p className="text-gray-600">
-                        Mon-Fri from 8am to 5pm
-                      </p>
+                      <p className="text-gray-600">Mon-Fri from 8am to 5pm</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">
                       <MapPin className="text-white" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        Office
-                      </h3>
-                      <p className="text-gray-600">
-                        5, Lenoardsee Crescent
-                      </p>
-                      <p className="text-gray-600">
-                        Newbury, UK, RG14 2FB
-                      </p>
+                      <h3 className="font-semibold text-gray-900 mb-1">Office</h3>
+                      <p className="text-gray-600">5, Lenoardsee Crescent</p>
+                      <p className="text-gray-600">Newbury, UK, RG14 2FB</p>
                     </div>
                   </div>
                 </div>
               </div>
 
+              {/* FORM */}
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 {submitSuccess && (
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
                     <p className="text-green-800 font-medium">
-                      Thank you for your message! We'll get back to you
-                      soon.
+                      Thank you for your message! We'll get back to you soon.
                     </p>
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) =>
-                        handleChange('name', e.target.value)
-                      }
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.name ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      placeholder="Your name"
-                    />
-                    {errors.name && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) => handleChange('name', e.target.value)}
+                    className="w-full px-4 py-3 border rounded-lg"
+                  />
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) =>
-                        handleChange('email', e.target.value)
-                      }
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      placeholder="your.email@example.com"
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    value={formData.email}
+                    onChange={(e) => handleChange('email', e.target.value)}
+                    className="w-full px-4 py-3 border rounded-lg"
+                  />
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) =>
-                        handleChange('message', e.target.value)
-                      }
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
-                        errors.message ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      placeholder="Tell us how we can help..."
-                    />
-                    {errors.message && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.message}
-                      </p>
-                    )}
-                  </div>
+                  <textarea
+                    rows={5}
+                    placeholder="Tell us how we can help..."
+                    value={formData.message}
+                    onChange={(e) => handleChange('message', e.target.value)}
+                    className="w-full px-4 py-3 border rounded-lg"
+                  />
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full py-4 bg-blue-600 text-white rounded-lg font-semibold"
                   >
-                    {isSubmitting ? (
-                      <span>Sending...</span>
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <Send size={20} />
-                      </>
-                    )}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>
+
             </div>
           </div>
         </section>
