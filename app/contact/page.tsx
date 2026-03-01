@@ -154,7 +154,7 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Office</h3>
                       <p className="text-gray-600">5, Lenoardsee Crescent</p>
-                      <p className="text-gray-600">Newbury, UK, RG14 2FB</p>
+                      <p className="text-gray-600">Newbury, RG14 2FB, United Kingdom</p>
                     </div>
                   </div>
                 </div>
